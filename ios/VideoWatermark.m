@@ -47,22 +47,24 @@ RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imag
 
     CGFloat newWidthImage= myImage.size.width+ (widthDiference * 0.7);
     CGFloat newHeightImage= myImage.size.height+ (widthDiference * 0.25);
-    NSLog(@" video height %f", sizeOfVideo.height);
-    NSLog(@" video width %f", sizeOfVideo.width);
+    // NSLog(@" video height %f", sizeOfVideo.height);
+    // NSLog(@" video width %f", sizeOfVideo.width);
 
-    NSLog(@" image height %f", myImage.size.height);
-    NSLog(@" image width %f", myImage.size.width);
+    // NSLog(@" image height %f", myImage.size.height);
+    // NSLog(@" image width %f", myImage.size.width);
 
     if(sizeOfVideo.height < 719.0 || sizeOfVideo.width < 719.0){
 
-        
-        [myImage drawInRect:CGRectMake(((sizeOfVideo.width - myImage.size.width * 0.4 ))/ 2 , sizeOfVideo.height - myImage.size.height*0.4, myImage.size.width * 0.4, myImage.size.height * 0.4 )];
+        CGFloat scalar = ((1/ sizeOfVideo.width)*100 + 0.1);
+        [myImage drawInRect:CGRectMake(((sizeOfVideo.width - myImage.size.width * scalar ))/ 2 , sizeOfVideo.height - myImage.size.height*scalar, myImage.size.width * scalar, myImage.size.height * scalar )];
        
     }else{
 
 
         [myImage drawInRect:CGRectMake( (sizeOfVideo.width - newWidthImage) /2  , (sizeOfVideo.height - newHeightImage), newWidthImage, newHeightImage)];
     }
+
+
 
 
     UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
