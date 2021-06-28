@@ -85,7 +85,7 @@ RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imag
     [parentLayer addSublayer:layerCa];
     
     AVMutableVideoComposition *videoComposition=[AVMutableVideoComposition videoComposition] ;
-    videoComposition.frameDuration=CMTimeMake(1, 30);
+    videoComposition.frameDuration=CMTimeMake(1, 60);
     videoComposition.renderSize=sizeOfVideo;
     videoComposition.animationTool=[AVVideoCompositionCoreAnimationTool videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
     
